@@ -4,7 +4,7 @@
 # so this plugin has NO build-time dependency on ONNX Runtime and always builds.
 # To deploy the ONNX Runtime shared libraries next to CloudCompare/ccViewer at
 # install time, point ONNXRUNTIME_DLL_DIR to the folder containing them
-# (e.g. the lib/ folder of onnxruntime-win-x64-gpu-<version>.zip).
+# (e.g. the onnxruntime/capi/ folder of an extracted ONNX Runtime wheel).
 
 option( PLUGIN_STANDARD_QSEMSEG "Semantic segmentation of point clouds with ONNX models (ONNX Runtime, CUDA GPU with CPU fallback)" OFF )
 

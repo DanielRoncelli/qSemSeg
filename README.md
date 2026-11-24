@@ -58,10 +58,11 @@ cmake .. -DPLUGIN_STANDARD_QSEMSEG=ON -DONNXRUNTIME_DLL_DIR=<ort>/lib
 The plugin needs the ONNX Runtime **CPU** provider to run at all; a GPU is an
 optional accelerator. Two GPU runtimes exist — pick one:
 
-- **CUDA** (NVIDIA only): download the ONNX Runtime **GPU** package, e.g.
-`onnxruntime-win-x64-gpu-1.23.2.zip` from
-<https://github.com/microsoft/onnxruntime/releases>, and copy next to
-`CloudCompare.exe`:
+- **CUDA** (NVIDIA only): download the ONNX Runtime **GPU** Python wheel, e.g.
+`onnxruntime_gpu-1.23.2-cp311-cp311-win_amd64.whl` from
+<https://pypi.org/project/onnxruntime-gpu/1.23.2/#files>. A wheel is a zip —
+rename it to `.zip` (or extract with Python's `zipfile`) and copy these files
+from `onnxruntime/capi/` next to `CloudCompare.exe`:
 
 ```
 onnxruntime.dll
@@ -86,9 +87,9 @@ execution provider; the pinned choices abort with the reason instead.
 
 The **CPU** runtime needs no manual download on machines that get their
 CloudCompare build from this repository's CI: both the Windows job and the
-Ubuntu jobs download the official ONNX Runtime CPU release (version pinned in
-`.github/workflows/build.yml`, SHA-256-verified), extract it, and point the
-plugin's install-time hook at it:
+Ubuntu jobs download the official ONNX Runtime CPU wheel from PyPI (version and
+SHA-256 pinned in `.github/workflows/build.yml`), extract the native libraries,
+and point the plugin's install-time hook at them:
 
 ```cmake
 # plugins/core/Standard/qSemSeg/CMakeLists.txt
@@ -103,12 +104,12 @@ their own builds; a CUDA runtime stays an optional manual download (above).
 
 ### DirectML (any DX12 GPU, Windows)
 
-Official ONNX Runtime releases carry **either** the CUDA provider **or** the
+Official ONNX Runtime builds carry **either** the CUDA provider **or** the
 DirectML provider - a single `onnxruntime.dll` cannot offer both. To use
-DirectML, download the DML package, e.g.
-`onnxruntime-win-x64-dml-1.23.0.zip` from
-<https://github.com/microsoft/onnxruntime/releases>, and copy next to
-`CloudCompare.exe`:
+DirectML, download the `onnxruntime-directml` wheel, e.g.
+`onnxruntime_directml-1.23.0-cp311-cp311-win_amd64.whl` from
+<https://pypi.org/project/onnxruntime-directml/1.23.0/#files>, and copy these
+files from `onnxruntime/capi/` next to `CloudCompare.exe`:
 
 ```
 onnxruntime.dll
