@@ -71,6 +71,54 @@ struct CloudPre
 	std::unique_ptr<PointCloudAdaptor> adaptor;
 	std::unique_ptr<KDTree>            tree; // over subPoints
 	size_t                             M = 0;
+
+	CloudPre() = default;
+	CloudPre(const CloudPre&) = delete;
+	CloudPre& operator=(const CloudPre&) = delete;
+
+	//! A move has to retarget the adaptor at the moved-to subPoints
+	/** The KD-tree keeps a reference to *adaptor, and the adaptor points at
+	    &subPoints. A member-wise move would leave that pointer aimed at the
+	    moved-from object (destroyed as soon as preprocessCloud returns), so
+	    the first tree query afterwards would read freed stack memory. The
+	    vector's heap buffer is preserved by the move, so only the address of
+	    the vector object itself has to be updated. **/
+	CloudPre(CloudPre&& other) noexcept
+	    : subPoints(std::move(other.subPoints))
+	    , subRgb(std::move(other.subRgb))
+	    , subIntensity(std::move(other.subIntensity))
+	    , subLabels(std::move(other.subLabels))
+	    , projInds(std::move(other.projInds))
+	    , adaptor(std::move(other.adaptor))
+	    , tree(std::move(other.tree))
+	    , M(other.M)
+	{
+		if (adaptor)
+		{
+			adaptor->pts = &subPoints;
+		}
+	}
+
+	CloudPre& operator=(CloudPre&& other) noexcept
+	{
+		if (this != &other)
+		{
+			// destroy the old tree before the adaptor it references
+			tree         = std::move(other.tree);
+			adaptor      = std::move(other.adaptor);
+			subPoints    = std::move(other.subPoints);
+			subRgb       = std::move(other.subRgb);
+			subIntensity = std::move(other.subIntensity);
+			subLabels    = std::move(other.subLabels);
+			projInds     = std::move(other.projInds);
+			M            = other.M;
+			if (adaptor)
+			{
+				adaptor->pts = &subPoints;
+			}
+		}
+		return *this;
+	}
 };
 
 //! Subsampling parameters for preprocessCloud (manifest preprocessing.subsampling)
