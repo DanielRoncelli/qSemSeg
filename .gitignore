@@ -1,0 +1,12 @@
+# Python bytecode caches (test fixture generators)
+__pycache__/
+*.py[cod]
+
+# Local build trees / IDE files
+build/
+build-*/
+CMakeUserPresets.json
+CMakeLists.txt.user*
+compile_commands.json
+.clangd/
+.cache/

@@ -1,0 +1,621 @@
+{
+  "num_points": 32768,
+  "in_channels": 3,
+  "num_classes": 9,
+  "voxel_size": 0.05,
+  "source": {
+    "cloud": "see SPHERE_FIXTURE_CLOUD",
+    "subsampled": "grid_subsampling 0.05 (DataProcessing)",
+    "patch": "regular-sampler attempt 0, kNN k=32768, seed 42"
+  },
+  "adapter": {
+    "id": "SphereFormer",
+    "window": {
+      "car_window": [
+        0.3,
+        0.3,
+        0.3,
+        0.6,
+        0.6,
+        0.6,
+        1.2,
+        1.2,
+        1.2,
+        2.4,
+        2.4,
+        2.4,
+        4.8,
+        4.8,
+        4.8
+      ],
+      "car_quant": [
+        0.05,
+        0.05,
+        0.05,
+        0.1,
+        0.1,
+        0.1,
+        0.2,
+        0.2,
+        0.2,
+        0.4,
+        0.4,
+        0.4,
+        0.8,
+        0.8,
+        0.8
+      ],
+      "sph_window": [
+        2.0,
+        2.0,
+        80.0,
+        3.0,
+        3.0,
+        80.0,
+        4.5,
+        4.5,
+        80.0,
+        6.75,
+        6.75,
+        80.0,
+        10.125,
+        10.125,
+        80.0
+      ],
+      "sph_quant": [
+        0.5,
+        0.5,
+        2.0,
+        0.75,
+        0.75,
+        2.0,
+        1.125,
+        1.125,
+        2.0,
+        1.6875,
+        1.6875,
+        2.0,
+        2.53125,
+        2.53125,
+        2.0
+      ]
+    },
+    "caps": {
+      "C": [
+        null,
+        28059,
+        16844,
+        7660,
+        3259
+      ],
+      "W": {
+        "car0": 17658,
+        "sph0": 18082,
+        "car1": 31466,
+        "sph1": 32244,
+        "car2": 24123,
+        "sph2": 24677,
+        "car3": 15732,
+        "sph3": 15929,
+        "car4": 11442,
+        "sph4": 11509
+      },
+      "M": {
+        "car0": 3201060,
+        "sph0": 5118058,
+        "car1": 1161004,
+        "sph1": 1111024,
+        "car2": 973736,
+        "sph2": 486347,
+        "car3": 574496,
+        "sph3": 118634,
+        "car4": 222111,
+        "sph4": 24878
+      }
+    }
+  },
+  "shift": [
+    306.3000183105469,
+    96.3499984741211,
+    253.1999969482422
+  ],
+  "logits_shape": [
+    32768,
+    9
+  ],
+  "inputs": [
+    {
+      "name": "feat",
+      "dtype": "float32",
+      "shape": [
+        32768,
+        3
+      ]
+    },
+    {
+      "name": "car_cnt0",
+      "dtype": "int32",
+      "shape": [
+        17658
+      ]
+    },
+    {
+      "name": "car_srt0",
+      "dtype": "int32",
+      "shape": [
+        32768
+      ]
+    },
+    {
+      "name": "car_inv0",
+      "dtype": "int32",
+      "shape": [
+        32768
+      ]
+    },
+    {
+      "name": "car_q0",
+      "dtype": "int32",
+      "shape": [
+        32768,
+        3
+      ]
+    },
+    {
+      "name": "sph_cnt0",
+      "dtype": "int32",
+      "shape": [
+        18082
+      ]
+    },
+    {
+      "name": "sph_srt0",
+      "dtype": "int32",
+      "shape": [
+        32768
+      ]
+    },
+    {
+      "name": "sph_inv0",
+      "dtype": "int32",
+      "shape": [
+        32768
+      ]
+    },
+    {
+      "name": "sph_q0",
+      "dtype": "int32",
+      "shape": [
+        32768,
+        2
+      ]
+    },
+    {
+      "name": "sph_r0",
+      "dtype": "float32",
+      "shape": [
+        32768
+      ]
+    },
+    {
+      "name": "subm0_nin",
+      "dtype": "int32",
+      "shape": [
+        32768,
+        27
+      ]
+    },
+    {
+      "name": "down0_nin",
+      "dtype": "int32",
+      "shape": [
+        28059,
+        8
+      ]
+    },
+    {
+      "name": "down0_perm",
+      "dtype": "int32",
+      "shape": [
+        32768
+      ]
+    },
+    {
+      "name": "down0_bnd",
+      "dtype": "int32",
+      "shape": [
+        32769
+      ]
+    },
+    {
+      "name": "inv0_nin",
+      "dtype": "int32",
+      "shape": [
+        32768,
+        8
+      ]
+    },
+    {
+      "name": "car_cnt1",
+      "dtype": "int32",
+      "shape": [
+        31466
+      ]
+    },
+    {
+      "name": "car_srt1",
+      "dtype": "int32",
+      "shape": [
+        28059
+      ]
+    },
+    {
+      "name": "car_inv1",
+      "dtype": "int32",
+      "shape": [
+        28059
+      ]
+    },
+    {
+      "name": "car_q1",
+      "dtype": "int32",
+      "shape": [
+        28059,
+        3
+      ]
+    },
+    {
+      "name": "sph_cnt1",
+      "dtype": "int32",
+      "shape": [
+        32244
+      ]
+    },
+    {
+      "name": "sph_srt1",
+      "dtype": "int32",
+      "shape": [
+        28059
+      ]
+    },
+    {
+      "name": "sph_inv1",
+      "dtype": "int32",
+      "shape": [
+        28059
+      ]
+    },
+    {
+      "name": "sph_q1",
+      "dtype": "int32",
+      "shape": [
+        28059,
+        2
+      ]
+    },
+    {
+      "name": "sph_r1",
+      "dtype": "float32",
+      "shape": [
+        28059
+      ]
+    },
+    {
+      "name": "subm1_nin",
+      "dtype": "int32",
+      "shape": [
+        28059,
+        27
+      ]
+    },
+    {
+      "name": "down1_nin",
+      "dtype": "int32",
+      "shape": [
+        16844,
+        8
+      ]
+    },
+    {
+      "name": "down1_perm",
+      "dtype": "int32",
+      "shape": [
+        28059
+      ]
+    },
+    {
+      "name": "down1_bnd",
+      "dtype": "int32",
+      "shape": [
+        28060
+      ]
+    },
+    {
+      "name": "inv1_nin",
+      "dtype": "int32",
+      "shape": [
+        28059,
+        8
+      ]
+    },
+    {
+      "name": "car_cnt2",
+      "dtype": "int32",
+      "shape": [
+        24123
+      ]
+    },
+    {
+      "name": "car_srt2",
+      "dtype": "int32",
+      "shape": [
+        16844
+      ]
+    },
+    {
+      "name": "car_inv2",
+      "dtype": "int32",
+      "shape": [
+        16844
+      ]
+    },
+    {
+      "name": "car_q2",
+      "dtype": "int32",
+      "shape": [
+        16844,
+        3
+      ]
+    },
+    {
+      "name": "sph_cnt2",
+      "dtype": "int32",
+      "shape": [
+        24677
+      ]
+    },
+    {
+      "name": "sph_srt2",
+      "dtype": "int32",
+      "shape": [
+        16844
+      ]
+    },
+    {
+      "name": "sph_inv2",
+      "dtype": "int32",
+      "shape": [
+        16844
+      ]
+    },
+    {
+      "name": "sph_q2",
+      "dtype": "int32",
+      "shape": [
+        16844,
+        2
+      ]
+    },
+    {
+      "name": "sph_r2",
+      "dtype": "float32",
+      "shape": [
+        16844
+      ]
+    },
+    {
+      "name": "subm2_nin",
+      "dtype": "int32",
+      "shape": [
+        16844,
+        27
+      ]
+    },
+    {
+      "name": "down2_nin",
+      "dtype": "int32",
+      "shape": [
+        7660,
+        8
+      ]
+    },
+    {
+      "name": "down2_perm",
+      "dtype": "int32",
+      "shape": [
+        16844
+      ]
+    },
+    {
+      "name": "down2_bnd",
+      "dtype": "int32",
+      "shape": [
+        16845
+      ]
+    },
+    {
+      "name": "inv2_nin",
+      "dtype": "int32",
+      "shape": [
+        16844,
+        8
+      ]
+    },
+    {
+      "name": "car_cnt3",
+      "dtype": "int32",
+      "shape": [
+        15732
+      ]
+    },
+    {
+      "name": "car_srt3",
+      "dtype": "int32",
+      "shape": [
+        7660
+      ]
+    },
+    {
+      "name": "car_inv3",
+      "dtype": "int32",
+      "shape": [
+        7660
+      ]
+    },
+    {
+      "name": "car_q3",
+      "dtype": "int32",
+      "shape": [
+        7660,
+        3
+      ]
+    },
+    {
+      "name": "sph_cnt3",
+      "dtype": "int32",
+      "shape": [
+        15929
+      ]
+    },
+    {
+      "name": "sph_srt3",
+      "dtype": "int32",
+      "shape": [
+        7660
+      ]
+    },
+    {
+      "name": "sph_inv3",
+      "dtype": "int32",
+      "shape": [
+        7660
+      ]
+    },
+    {
+      "name": "sph_q3",
+      "dtype": "int32",
+      "shape": [
+        7660,
+        2
+      ]
+    },
+    {
+      "name": "sph_r3",
+      "dtype": "float32",
+      "shape": [
+        7660
+      ]
+    },
+    {
+      "name": "subm3_nin",
+      "dtype": "int32",
+      "shape": [
+        7660,
+        27
+      ]
+    },
+    {
+      "name": "down3_nin",
+      "dtype": "int32",
+      "shape": [
+        3259,
+        8
+      ]
+    },
+    {
+      "name": "down3_perm",
+      "dtype": "int32",
+      "shape": [
+        7660
+      ]
+    },
+    {
+      "name": "down3_bnd",
+      "dtype": "int32",
+      "shape": [
+        7661
+      ]
+    },
+    {
+      "name": "inv3_nin",
+      "dtype": "int32",
+      "shape": [
+        7660,
+        8
+      ]
+    },
+    {
+      "name": "car_cnt4",
+      "dtype": "int32",
+      "shape": [
+        11442
+      ]
+    },
+    {
+      "name": "car_srt4",
+      "dtype": "int32",
+      "shape": [
+        3259
+      ]
+    },
+    {
+      "name": "car_inv4",
+      "dtype": "int32",
+      "shape": [
+        3259
+      ]
+    },
+    {
+      "name": "car_q4",
+      "dtype": "int32",
+      "shape": [
+        3259,
+        3
+      ]
+    },
+    {
+      "name": "sph_cnt4",
+      "dtype": "int32",
+      "shape": [
+        11509
+      ]
+    },
+    {
+      "name": "sph_srt4",
+      "dtype": "int32",
+      "shape": [
+        3259
+      ]
+    },
+    {
+      "name": "sph_inv4",
+      "dtype": "int32",
+      "shape": [
+        3259
+      ]
+    },
+    {
+      "name": "sph_q4",
+      "dtype": "int32",
+      "shape": [
+        3259,
+        2
+      ]
+    },
+    {
+      "name": "sph_r4",
+      "dtype": "float32",
+      "shape": [
+        3259
+      ]
+    },
+    {
+      "name": "subm4_nin",
+      "dtype": "int32",
+      "shape": [
+        3259,
+        27
+      ]
+    }
+  ]
+}

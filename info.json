@@ -1,0 +1,30 @@
+{
+    "type": "Standard",
+    "name": "qSemSeg (ONNX semantic segmentation)",
+    "icon": ":/CC/plugin/qSemSeg/images/icon.png",
+    "description": "Applies a pretrained semantic segmentation model (ONNX, e.g. FKAConv or SphereFormer) to the selected point cloud using ONNX Runtime (CPU, NVIDIA CUDA or DirectML - any DX12 GPU - with automatic CPU fallback). The predicted labels are added to the cloud as a new scalar field.",
+    "authors": [
+        {
+            "name": "Daniel Roncelli"
+        }
+    ],
+    "maintainers": [
+        {
+            "name": "Daniel Roncelli"
+        }
+    ],
+    "references": [
+        {
+            "text": "ONNX Runtime",
+            "url": "https://onnxruntime.ai/"
+        },
+        {
+            "text": "ONNX model format",
+            "url": "https://onnx.ai/"
+        },
+        {
+            "text": "Open3D-ML segmentation model training pipeline",
+            "url": "https://github.com/isl-org/Open3D-ML"
+        }
+    ]
+}

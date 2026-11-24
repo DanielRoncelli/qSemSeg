@@ -1,0 +1,704 @@
+{
+  "num_points": 2048,
+  "in_channels": 3,
+  "num_classes": 9,
+  "voxel_size": 0.05,
+  "adapter": {
+    "id": "SphereFormer",
+    "window": {
+      "car_window": [
+        0.3,
+        0.3,
+        0.3,
+        0.6,
+        0.6,
+        0.6,
+        1.2,
+        1.2,
+        1.2,
+        2.4,
+        2.4,
+        2.4,
+        4.8,
+        4.8,
+        4.8
+      ],
+      "car_quant": [
+        0.05,
+        0.05,
+        0.05,
+        0.1,
+        0.1,
+        0.1,
+        0.2,
+        0.2,
+        0.2,
+        0.4,
+        0.4,
+        0.4,
+        0.8,
+        0.8,
+        0.8
+      ],
+      "sph_window": [
+        2.0,
+        2.0,
+        80.0,
+        3.0,
+        3.0,
+        80.0,
+        4.5,
+        4.5,
+        80.0,
+        6.75,
+        6.75,
+        80.0,
+        10.125,
+        10.125,
+        80.0
+      ],
+      "sph_quant": [
+        0.5,
+        0.5,
+        2.0,
+        0.75,
+        0.75,
+        2.0,
+        1.125,
+        1.125,
+        2.0,
+        1.6875,
+        1.6875,
+        2.0,
+        2.53125,
+        2.53125,
+        2.0
+      ]
+    },
+    "caps": {
+      "C": [
+        null,
+        1679,
+        734,
+        108,
+        32
+      ],
+      "W": {
+        "car0": 348,
+        "sph0": 1215,
+        "car1": 242,
+        "sph1": 919,
+        "car2": 101,
+        "sph2": 410,
+        "car3": 24,
+        "sph3": 65,
+        "car4": 17,
+        "sph4": 38
+      },
+      "M": {
+        "car0": 22104,
+        "sph0": 6752,
+        "car1": 57844,
+        "sph1": 6211,
+        "car2": 41675,
+        "sph2": 2435,
+        "car3": 3240,
+        "sph3": 322,
+        "car4": 648,
+        "sph4": 92
+      }
+    }
+  },
+  "shift": [
+    2.4000000953674316,
+    1.600000023841858,
+    0.0
+  ],
+  "inputs": [
+    {
+      "name": "feat",
+      "file": "sphere_small_feat.f32",
+      "dtype": "float32",
+      "shape": [
+        2048,
+        3
+      ]
+    },
+    {
+      "name": "car_cnt0",
+      "file": "sphere_small_car_cnt0.i32",
+      "dtype": "int32",
+      "shape": [
+        348
+      ]
+    },
+    {
+      "name": "car_srt0",
+      "file": "sphere_small_car_srt0.i32",
+      "dtype": "int32",
+      "shape": [
+        2048
+      ]
+    },
+    {
+      "name": "car_inv0",
+      "file": "sphere_small_car_inv0.i32",
+      "dtype": "int32",
+      "shape": [
+        2048
+      ]
+    },
+    {
+      "name": "car_q0",
+      "file": "sphere_small_car_q0.i32",
+      "dtype": "int32",
+      "shape": [
+        2048,
+        3
+      ]
+    },
+    {
+      "name": "sph_cnt0",
+      "file": "sphere_small_sph_cnt0.i32",
+      "dtype": "int32",
+      "shape": [
+        1215
+      ]
+    },
+    {
+      "name": "sph_srt0",
+      "file": "sphere_small_sph_srt0.i32",
+      "dtype": "int32",
+      "shape": [
+        2048
+      ]
+    },
+    {
+      "name": "sph_inv0",
+      "file": "sphere_small_sph_inv0.i32",
+      "dtype": "int32",
+      "shape": [
+        2048
+      ]
+    },
+    {
+      "name": "sph_q0",
+      "file": "sphere_small_sph_q0.i32",
+      "dtype": "int32",
+      "shape": [
+        2048,
+        2
+      ]
+    },
+    {
+      "name": "sph_r0",
+      "file": "sphere_small_sph_r0.f32",
+      "dtype": "float32",
+      "shape": [
+        2048
+      ]
+    },
+    {
+      "name": "subm0_nin",
+      "file": "sphere_small_subm0_nin.i32",
+      "dtype": "int32",
+      "shape": [
+        2048,
+        27
+      ]
+    },
+    {
+      "name": "down0_nin",
+      "file": "sphere_small_down0_nin.i32",
+      "dtype": "int32",
+      "shape": [
+        1679,
+        8
+      ]
+    },
+    {
+      "name": "down0_perm",
+      "file": "sphere_small_down0_perm.i32",
+      "dtype": "int32",
+      "shape": [
+        2048
+      ]
+    },
+    {
+      "name": "down0_bnd",
+      "file": "sphere_small_down0_bnd.i32",
+      "dtype": "int32",
+      "shape": [
+        2049
+      ]
+    },
+    {
+      "name": "inv0_nin",
+      "file": "sphere_small_inv0_nin.i32",
+      "dtype": "int32",
+      "shape": [
+        2048,
+        8
+      ]
+    },
+    {
+      "name": "car_cnt1",
+      "file": "sphere_small_car_cnt1.i32",
+      "dtype": "int32",
+      "shape": [
+        242
+      ]
+    },
+    {
+      "name": "car_srt1",
+      "file": "sphere_small_car_srt1.i32",
+      "dtype": "int32",
+      "shape": [
+        1679
+      ]
+    },
+    {
+      "name": "car_inv1",
+      "file": "sphere_small_car_inv1.i32",
+      "dtype": "int32",
+      "shape": [
+        1679
+      ]
+    },
+    {
+      "name": "car_q1",
+      "file": "sphere_small_car_q1.i32",
+      "dtype": "int32",
+      "shape": [
+        1679,
+        3
+      ]
+    },
+    {
+      "name": "sph_cnt1",
+      "file": "sphere_small_sph_cnt1.i32",
+      "dtype": "int32",
+      "shape": [
+        919
+      ]
+    },
+    {
+      "name": "sph_srt1",
+      "file": "sphere_small_sph_srt1.i32",
+      "dtype": "int32",
+      "shape": [
+        1679
+      ]
+    },
+    {
+      "name": "sph_inv1",
+      "file": "sphere_small_sph_inv1.i32",
+      "dtype": "int32",
+      "shape": [
+        1679
+      ]
+    },
+    {
+      "name": "sph_q1",
+      "file": "sphere_small_sph_q1.i32",
+      "dtype": "int32",
+      "shape": [
+        1679,
+        2
+      ]
+    },
+    {
+      "name": "sph_r1",
+      "file": "sphere_small_sph_r1.f32",
+      "dtype": "float32",
+      "shape": [
+        1679
+      ]
+    },
+    {
+      "name": "subm1_nin",
+      "file": "sphere_small_subm1_nin.i32",
+      "dtype": "int32",
+      "shape": [
+        1679,
+        27
+      ]
+    },
+    {
+      "name": "down1_nin",
+      "file": "sphere_small_down1_nin.i32",
+      "dtype": "int32",
+      "shape": [
+        734,
+        8
+      ]
+    },
+    {
+      "name": "down1_perm",
+      "file": "sphere_small_down1_perm.i32",
+      "dtype": "int32",
+      "shape": [
+        1679
+      ]
+    },
+    {
+      "name": "down1_bnd",
+      "file": "sphere_small_down1_bnd.i32",
+      "dtype": "int32",
+      "shape": [
+        1680
+      ]
+    },
+    {
+      "name": "inv1_nin",
+      "file": "sphere_small_inv1_nin.i32",
+      "dtype": "int32",
+      "shape": [
+        1679,
+        8
+      ]
+    },
+    {
+      "name": "car_cnt2",
+      "file": "sphere_small_car_cnt2.i32",
+      "dtype": "int32",
+      "shape": [
+        101
+      ]
+    },
+    {
+      "name": "car_srt2",
+      "file": "sphere_small_car_srt2.i32",
+      "dtype": "int32",
+      "shape": [
+        734
+      ]
+    },
+    {
+      "name": "car_inv2",
+      "file": "sphere_small_car_inv2.i32",
+      "dtype": "int32",
+      "shape": [
+        734
+      ]
+    },
+    {
+      "name": "car_q2",
+      "file": "sphere_small_car_q2.i32",
+      "dtype": "int32",
+      "shape": [
+        734,
+        3
+      ]
+    },
+    {
+      "name": "sph_cnt2",
+      "file": "sphere_small_sph_cnt2.i32",
+      "dtype": "int32",
+      "shape": [
+        410
+      ]
+    },
+    {
+      "name": "sph_srt2",
+      "file": "sphere_small_sph_srt2.i32",
+      "dtype": "int32",
+      "shape": [
+        734
+      ]
+    },
+    {
+      "name": "sph_inv2",
+      "file": "sphere_small_sph_inv2.i32",
+      "dtype": "int32",
+      "shape": [
+        734
+      ]
+    },
+    {
+      "name": "sph_q2",
+      "file": "sphere_small_sph_q2.i32",
+      "dtype": "int32",
+      "shape": [
+        734,
+        2
+      ]
+    },
+    {
+      "name": "sph_r2",
+      "file": "sphere_small_sph_r2.f32",
+      "dtype": "float32",
+      "shape": [
+        734
+      ]
+    },
+    {
+      "name": "subm2_nin",
+      "file": "sphere_small_subm2_nin.i32",
+      "dtype": "int32",
+      "shape": [
+        734,
+        27
+      ]
+    },
+    {
+      "name": "down2_nin",
+      "file": "sphere_small_down2_nin.i32",
+      "dtype": "int32",
+      "shape": [
+        108,
+        8
+      ]
+    },
+    {
+      "name": "down2_perm",
+      "file": "sphere_small_down2_perm.i32",
+      "dtype": "int32",
+      "shape": [
+        734
+      ]
+    },
+    {
+      "name": "down2_bnd",
+      "file": "sphere_small_down2_bnd.i32",
+      "dtype": "int32",
+      "shape": [
+        735
+      ]
+    },
+    {
+      "name": "inv2_nin",
+      "file": "sphere_small_inv2_nin.i32",
+      "dtype": "int32",
+      "shape": [
+        734,
+        8
+      ]
+    },
+    {
+      "name": "car_cnt3",
+      "file": "sphere_small_car_cnt3.i32",
+      "dtype": "int32",
+      "shape": [
+        24
+      ]
+    },
+    {
+      "name": "car_srt3",
+      "file": "sphere_small_car_srt3.i32",
+      "dtype": "int32",
+      "shape": [
+        108
+      ]
+    },
+    {
+      "name": "car_inv3",
+      "file": "sphere_small_car_inv3.i32",
+      "dtype": "int32",
+      "shape": [
+        108
+      ]
+    },
+    {
+      "name": "car_q3",
+      "file": "sphere_small_car_q3.i32",
+      "dtype": "int32",
+      "shape": [
+        108,
+        3
+      ]
+    },
+    {
+      "name": "sph_cnt3",
+      "file": "sphere_small_sph_cnt3.i32",
+      "dtype": "int32",
+      "shape": [
+        65
+      ]
+    },
+    {
+      "name": "sph_srt3",
+      "file": "sphere_small_sph_srt3.i32",
+      "dtype": "int32",
+      "shape": [
+        108
+      ]
+    },
+    {
+      "name": "sph_inv3",
+      "file": "sphere_small_sph_inv3.i32",
+      "dtype": "int32",
+      "shape": [
+        108
+      ]
+    },
+    {
+      "name": "sph_q3",
+      "file": "sphere_small_sph_q3.i32",
+      "dtype": "int32",
+      "shape": [
+        108,
+        2
+      ]
+    },
+    {
+      "name": "sph_r3",
+      "file": "sphere_small_sph_r3.f32",
+      "dtype": "float32",
+      "shape": [
+        108
+      ]
+    },
+    {
+      "name": "subm3_nin",
+      "file": "sphere_small_subm3_nin.i32",
+      "dtype": "int32",
+      "shape": [
+        108,
+        27
+      ]
+    },
+    {
+      "name": "down3_nin",
+      "file": "sphere_small_down3_nin.i32",
+      "dtype": "int32",
+      "shape": [
+        32,
+        8
+      ]
+    },
+    {
+      "name": "down3_perm",
+      "file": "sphere_small_down3_perm.i32",
+      "dtype": "int32",
+      "shape": [
+        108
+      ]
+    },
+    {
+      "name": "down3_bnd",
+      "file": "sphere_small_down3_bnd.i32",
+      "dtype": "int32",
+      "shape": [
+        109
+      ]
+    },
+    {
+      "name": "inv3_nin",
+      "file": "sphere_small_inv3_nin.i32",
+      "dtype": "int32",
+      "shape": [
+        108,
+        8
+      ]
+    },
+    {
+      "name": "car_cnt4",
+      "file": "sphere_small_car_cnt4.i32",
+      "dtype": "int32",
+      "shape": [
+        17
+      ]
+    },
+    {
+      "name": "car_srt4",
+      "file": "sphere_small_car_srt4.i32",
+      "dtype": "int32",
+      "shape": [
+        32
+      ]
+    },
+    {
+      "name": "car_inv4",
+      "file": "sphere_small_car_inv4.i32",
+      "dtype": "int32",
+      "shape": [
+        32
+      ]
+    },
+    {
+      "name": "car_q4",
+      "file": "sphere_small_car_q4.i32",
+      "dtype": "int32",
+      "shape": [
+        32,
+        3
+      ]
+    },
+    {
+      "name": "sph_cnt4",
+      "file": "sphere_small_sph_cnt4.i32",
+      "dtype": "int32",
+      "shape": [
+        38
+      ]
+    },
+    {
+      "name": "sph_srt4",
+      "file": "sphere_small_sph_srt4.i32",
+      "dtype": "int32",
+      "shape": [
+        32
+      ]
+    },
+    {
+      "name": "sph_inv4",
+      "file": "sphere_small_sph_inv4.i32",
+      "dtype": "int32",
+      "shape": [
+        32
+      ]
+    },
+    {
+      "name": "sph_q4",
+      "file": "sphere_small_sph_q4.i32",
+      "dtype": "int32",
+      "shape": [
+        32,
+        2
+      ]
+    },
+    {
+      "name": "sph_r4",
+      "file": "sphere_small_sph_r4.f32",
+      "dtype": "float32",
+      "shape": [
+        32
+      ]
+    },
+    {
+      "name": "subm4_nin",
+      "file": "sphere_small_subm4_nin.i32",
+      "dtype": "int32",
+      "shape": [
+        32,
+        27
+      ]
+    }
+  ],
+  "labels": {
+    "values": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "names": [
+      "ground",
+      "building",
+      "pole-road_sign-traffic_light",
+      "bollard-small_pole",
+      "trash_can",
+      "barrier",
+      "pedestrian",
+      "car",
+      "natural-vegetation"
+    ],
+    "description": "ParisLille3D label values (fixture copy of the production table)."
+  }
+}

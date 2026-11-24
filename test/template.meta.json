@@ -1,0 +1,25 @@
+{
+    "schema_version": "1.0",
+    "model_name": "MyPointNetModel",
+    "adapter": {
+        "id": "PointNet"
+    },
+    "in_channels": 3,
+    "num_classes": 2,
+    "num_points": 4096,
+    "preprocessing": {
+        "voxel_size": 0.05,
+        "shift_min": true,
+        "feature_columns": [],
+        "subsampling": {
+            "type": "voxel"
+        }
+    },
+    "labels": {
+        "values": [1, 2],
+        "names": ["ground", "building"]
+    },
+    "output": {
+        "kind": "logits"
+    }
+}
