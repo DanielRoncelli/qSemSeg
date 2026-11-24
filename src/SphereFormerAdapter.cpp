@@ -176,6 +176,16 @@ namespace
 	{
 		return caps[static_cast<size_t>(level) + (sphere ? 5 : 0)];
 	}
+	// Force an IEEE float32 rounding point. GCC/Clang may contract a*b+c into a
+	// single FMA on runners with FMA support, while the reference numpy fixtures
+	// were generated with separate float32 operations; one ULP of difference is
+	// enough to flip the sphere window partitions. A volatile store/load forbids
+	// the contraction regardless of compiler flags.
+	inline float f32Round(float value)
+	{
+		volatile float rounded = value;
+		return rounded;
+	}
 } // namespace
 
 void sphereCart2Sphere(const std::vector<float>& xyz, std::vector<float>& out)
@@ -196,10 +206,10 @@ void sphereCart2Sphere(const std::vector<float>& xyz, std::vector<float>& out)
 		// numpy's float32 arctan2 == (float)atan2(double, double) (verified
 		// bit-exact on 400k samples); plain atan2f differs by 1-2 ULP
 		const float theta = (static_cast<float>(std::atan2(static_cast<double>(y), static_cast<double>(x))) + PI) * DEG;
-		const float xy    = x * x + y * y; // f32 left-to-right (no FMA: the
-		                                   // build targets baseline x86-64)
+		// f32 left-to-right with explicit rounding points (see f32Round)
+		const float xy   = f32Round(f32Round(x * x) + f32Round(y * y));
 		const float beta = static_cast<float>(std::atan2(static_cast<double>(std::sqrt(xy)), static_cast<double>(z))) * DEG;
-		const float r    = std::sqrt(xy + z * z);
+		const float r    = std::sqrt(f32Round(xy + f32Round(z * z)));
 		out[i * 3 + 0]   = theta;
 		out[i * 3 + 1]   = beta;
 		out[i * 3 + 2]   = r;
